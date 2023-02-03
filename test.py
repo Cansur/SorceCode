@@ -1,7 +1,4 @@
-print("5")
-print("6")
-print("7")
-print("8")
-print("9")
-# HI
-# print("10")
+var = {
+    "name": "이선재",
+    "properties": 1500
+}
