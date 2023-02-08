@@ -1,0 +1,10 @@
+diff a/test.py b/test.py	(rejected hunks)
+@@ -1,4 +1,5 @@
+ var = {
+     "name": "이선재",
+     "properties": 1500
+-}
+\ No newline at end of file
++}
++print(var)
+\ No newline at end of file

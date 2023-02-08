@@ -1,5 +1,7 @@
-var = {
-    "name": "이선재",
-    "properties": 1500
-}
-print(var)
+# a = [0 for i in range(3)]
+# for i in range(3):
+#     a[i] = input()
+# if a[1] == "+":
+#     print(int(a[0]) + int(a[2]))
+# else:
+#     print(int(a[0]) * int(a[2]))
