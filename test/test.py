@@ -1,11 +1,18 @@
-# combinations --> 모든합 구하는 함수
-from itertools import combinations
-# var_list = [20,7,23,19,10,15,25,8,13]
-var_list = [int(input()) for _ in range(9)]
-for i in combinations(var_list, 7):
-    if sum(i) == 100:
-        var_list = i
+import math
+a, b = 24, 18
+# print(math.gcd(a, b)) 최대 공약수
+# print(math.lcm(a, b)) 최소 공배수
+
+# 최대 공약수
+for i in range(min(a,b), 0, -1):
+    if a%i == 0 and b%i == 0:
+        print(i)
+        # 최소 공배수
+        # print(a*b//i)
         break
-var_list = list(var_list)
-var_list.sort()
-print(*var_list, sep = '\n')
+
+# 최소 공배수
+for i in range(max(a, b), (a*b)+1):
+    if i%a == 0 and i%b == 0:
+        print(i)
+        break
