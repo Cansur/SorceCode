@@ -1,7 +1,7 @@
-a,b,c = map(int, input().split())
-
-if b < c:
-    var = a//(c-b)
-    print(var + 1)
-else:
-    print(-1)
+n, m = map(int, input().split())
+n_list = [0 for _ in range(n)]
+for p in range(m):
+    i, j, k = map(int, input().split())
+    for q in range(i-1, j):
+        n_list[q] = k
+print(*n_list)
