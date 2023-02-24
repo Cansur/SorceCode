@@ -1,19 +1,12 @@
-data = {
-    'A+' : 4.5,
-    'A0' : 4.0,
-    'B+' : 3.5,
-    'B0' : 3.0,
-    'C+' : 2.5,
-    'C0' : 2.0,
-    'D+' : 1.5,
-    'D0' : 1.0,
-    'F' : 0.0
-}
-sum = 0; a_sum = 0
-for _ in range(20):
-    k, a, b = input().split()
-    a = float(a)
-    if b == 'P': continue
-    sum += a*data[b]
-    a_sum += a
-print('{:.6f}'.format(sum/a_sum))
+while True:
+    n, m, o = map(int, input().split())
+    if n+m+o == 0: break
+    big = max(n,m,o)
+    if big == n: 
+        n = o
+    if big == m: 
+        m = o 
+    if big**2 == n**2 + m**2:
+        print('right')
+    else:
+        print('wrong')
