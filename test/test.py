@@ -1,7 +1,9 @@
-from collections import deque
-n = int(input())
-dq = deque(i for i in range(1, n+1))
-while len(dq) != 1:
-    dq.popleft()
-    dq.append(dq.popleft())
-print(dq.pop())
+for _ in range(int(input())):    
+    h, w, n = map(int, input().split())
+    floor = n%h
+    room = (n//h)+1
+    if floor == 0: floor = h; room -= 1
+    if room < 10:
+        print(str(floor) + '0' + str(room))
+    else:
+        print(str(floor) + str(room))
