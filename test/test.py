@@ -1,12 +1,7 @@
-while True:
-    n, m, o = map(int, input().split())
-    if n+m+o == 0: break
-    big = max(n,m,o)
-    if big == n: 
-        n = o
-    if big == m: 
-        m = o 
-    if big**2 == n**2 + m**2:
-        print('right')
-    else:
-        print('wrong')
+from collections import deque
+n = int(input())
+dq = deque(i for i in range(1, n+1))
+while len(dq) != 1:
+    dq.popleft()
+    dq.append(dq.popleft())
+print(dq.pop())
