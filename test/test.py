@@ -1,17 +1,32 @@
-n = int(input())
-n_list = list(map(int, input().split()))
-m = int(input())
-m_list = list(map(int, input().split()))
+import sys
 
-counts = {}
-for i in n_list:
-    if i in counts:
-        counts[i] += 1
-    else:
-        counts[i] = 1
-
-for i in m_list:
-    if counts.get(i) == None:
-        print('0', end = ' ')
-    else:
-        print(counts[i], end = ' ')
+n = int(sys.stdin.readline())
+list = []
+for i in range(n):
+    typenum = sys.stdin.readline().split()
+    
+    if typenum[0] == 'push':
+        list.append(typenum[1])
+    elif typenum[0] == 'pop':
+        if len(list) == 0:
+            print(-1)
+        else:
+            print(list.pop(0))
+    elif typenum[0] == 'size':
+        print(len(list))
+    elif typenum[0] == 'empty':
+        if len(list) == 0:
+            print(1)
+        else:
+            print(0)
+    elif typenum[0] == 'front':
+        if len(list) == 0:
+            print(-1)
+        else:
+            print(list[0])
+    elif typenum[0] == 'back':
+        if len(list) == 0:
+            print(-1)
+        else:
+            print(list[-1])
+    
