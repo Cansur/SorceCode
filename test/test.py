@@ -1,17 +1,19 @@
-N, M = map(int, input().split())
-arr_tree = list(map(int, input().split()))
-start, end = 1, max(arr_tree)
+N = int(input())
+cnt = N//5
 
-while start <= end:
-    mid = (start+end) // 2
-    
-    length = 0 
-    for i in arr_tree:
-        if i >= mid:
-            length += i - mid
-    
-    if length >= M:
-        start = mid + 1
+while True:
+    if (N-(cnt*5))%3 == 0:
+        cnt += (N-(cnt*5))/3
+        if cnt != int(cnt):
+            print(-1)
+            break
+        print(int(cnt))
+        break
+    elif cnt <= 0:
+        print(-1)
+        break
     else:
-        end = mid - 1
-print(end)
+        cnt -= 1
+
+
+
