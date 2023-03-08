@@ -1,13 +1,14 @@
-N = int(input())
-arr = []
+X = int(input())
+line = 1
+while X > line:
+    X -= line
+    line += 1
 
-for _ in range(N):
-    x, y = map(int, input().split())
-    arr.append((x, y))
 
-for i in arr:
-    rank = 1
-    for j in arr:
-        if i[0] < j[0] and i[1] < j[1]:
-                rank += 1
-    print(rank, end = ' ')
+if line % 2 == 0:
+    a = X
+    b = line - X + 1
+else:
+    a = line - X + 1
+    b = X
+print(a, '/', b, sep='')
