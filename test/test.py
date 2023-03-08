@@ -1,14 +1,4 @@
-X = int(input())
-line = 1
-while X > line:
-    X -= line
-    line += 1
-
-
-if line % 2 == 0:
-    a = X
-    b = line - X + 1
-else:
-    a = line - X + 1
-    b = X
-print(a, '/', b, sep='')
+N, k = map(int, input().split())
+x = list(map(int, input().split()))
+x.sort(reverse=True)
+print(x[k-1])
