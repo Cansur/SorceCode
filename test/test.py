@@ -1,16 +1,18 @@
-import sys
-while 1:
-    N = int(sys.stdin.readline())
-    arr = []
-    if N == -1: break
+import math
 
-    for i in range(1, N):
-        if N % i == 0: arr.append(i)
-    
-    if sum(arr) == N:
-        print(f'{N} = 1', end = '')
-        for i in range(1, len(arr)):
-            print(f' + {arr[i]}', end = '')
-        print()
-    else:
-        print(f'{N} is NOT perfect.')
+M = int(input())
+N = int(input())
+arr = []
+
+for i in range(M, N+1):
+    if i == 1: continue
+    is_check = True
+    for j in range(2, int(math.sqrt(i) + 1)):
+        if i % j == 0:
+            is_check = False
+    if is_check: arr.append(i)
+if len(arr) == 0:
+    print(-1)
+else:
+    print(sum(arr))
+    print(arr[0])
