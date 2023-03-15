@@ -1,18 +1,16 @@
-import math
+def recursion(s, l, r):
+    global cnt
+    cnt += 1
+    if l >= r: return 1
+    elif s[l] != s[r]: return 0
+    else: return recursion(s, l+1, r-1)
 
-M = int(input())
-N = int(input())
-arr = []
+def isPalindrome(s):
+    return recursion(s, 0, len(s)-1)
 
-for i in range(M, N+1):
-    if i == 1: continue
-    is_check = True
-    for j in range(2, int(math.sqrt(i) + 1)):
-        if i % j == 0:
-            is_check = False
-    if is_check: arr.append(i)
-if len(arr) == 0:
-    print(-1)
-else:
-    print(sum(arr))
-    print(arr[0])
+for _ in range(int(input())):
+    S = input()
+    cnt = 0
+    print(isPalindrome(S), end = ' ')
+    print(cnt)
+      
