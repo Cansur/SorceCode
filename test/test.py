@@ -1,16 +1,15 @@
-def recursion(s, l, r):
-    global cnt
-    cnt += 1
-    if l >= r: return 1
-    elif s[l] != s[r]: return 0
-    else: return recursion(s, l+1, r-1)
+K, N = map(int, input().split())
+arr = [int(input()) for _ in range(K)]
 
-def isPalindrome(s):
-    return recursion(s, 0, len(s)-1)
+start, end = 1, max(arr)
 
-for _ in range(int(input())):
-    S = input()
-    cnt = 0
-    print(isPalindrome(S), end = ' ')
-    print(cnt)
-      
+while start <= end:
+    mid, ea = (start + end) // 2, 0
+    for i in arr:
+        ea += i // mid
+
+    if ea >= N: start = mid + 1
+    else: end = mid - 1
+
+print(start-1)
+        
