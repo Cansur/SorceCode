@@ -1,15 +1,20 @@
-K, N = map(int, input().split())
-arr = [int(input()) for _ in range(K)]
+import sys
+from collections import Counter
+N = int(input())
+arr = [int(sys.stdin.readline()) for _ in range(N)]
+arr.sort()
 
-start, end = 1, max(arr)
+def mode():
+    cnt = Counter(arr).most_common(2)
+    if len(arr) > 1:
+        if cnt[0][1] == cnt[1][1]:
+            return cnt[1][0]
+        else:
+            return cnt[0][0]
+    else:
+        return cnt[0][0]
 
-while start <= end:
-    mid, ea = (start + end) // 2, 0
-    for i in arr:
-        ea += i // mid
-
-    if ea >= N: start = mid + 1
-    else: end = mid - 1
-
-print(start-1)
-        
+print(round(sum(arr)/N))
+print(arr[N//2])
+print(mode())
+print(arr[-1] - arr[0])
