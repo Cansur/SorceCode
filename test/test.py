@@ -1,20 +1,10 @@
-import sys
-from collections import Counter
-N = int(input())
-arr = [int(sys.stdin.readline()) for _ in range(N)]
-arr.sort()
+arr_x, arr_y = [], []
+for _ in range(3):
+    x, y = map(int, input().split())
+    arr_x.append(x)
+    arr_y.append(y)
 
-def mode():
-    cnt = Counter(arr).most_common(2)
-    if len(arr) > 1:
-        if cnt[0][1] == cnt[1][1]:
-            return cnt[1][0]
-        else:
-            return cnt[0][0]
-    else:
-        return cnt[0][0]
-
-print(round(sum(arr)/N))
-print(arr[N//2])
-print(mode())
-print(arr[-1] - arr[0])
+for i in range(3):
+    if arr_x.count(arr_x[i]) == 1: x4 = arr_x[i]
+    if arr_y.count(arr_y[i]) == 1: y4 = arr_y[i]
+print(x4, y4)
