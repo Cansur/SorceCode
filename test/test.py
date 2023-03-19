@@ -1,10 +1,12 @@
-arr_x, arr_y = [], []
-for _ in range(3):
-    x, y = map(int, input().split())
-    arr_x.append(x)
-    arr_y.append(y)
+import sys
+N = int(sys.stdin.readline())
+dic = {}
+dic = dict.fromkeys(map(int, sys.stdin.readline().split()), 1)
+M = int(sys.stdin.readline())
+arr_M = list(map(int, sys.stdin.readline().split()))
 
-for i in range(3):
-    if arr_x.count(arr_x[i]) == 1: x4 = arr_x[i]
-    if arr_y.count(arr_y[i]) == 1: y4 = arr_y[i]
-print(x4, y4)
+for i in range(M):
+    if dic.get(arr_M[i]):
+        print(1, end = ' ')
+    else:
+        print(0, end = ' ')
