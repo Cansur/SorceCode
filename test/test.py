@@ -1,12 +1,20 @@
 import sys
-N = int(sys.stdin.readline())
-dic = {}
-dic = dict.fromkeys(map(int, sys.stdin.readline().split()), 1)
-M = int(sys.stdin.readline())
-arr_M = list(map(int, sys.stdin.readline().split()))
+def isPrime(n):
+    if n == 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
 
-for i in range(M):
-    if dic.get(arr_M[i]):
-        print(1, end = ' ')
-    else:
-        print(0, end = ' ')
+T = int(input())
+for _ in range(T):
+    n = int(sys.stdin.readline())
+    x, y = n//2, n//2
+    while x > 0:
+        if isPrime(x) and isPrime(y):
+            print(x, y)
+            break
+        else:
+            x -= 1
+            y += 1
