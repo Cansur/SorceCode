@@ -1,8 +1,7 @@
-N, M = map(int, input().split())
-s = set([input() for _ in range(N)])
-cnt = 0
-for _ in range(M):
-    tmp = input()
-    if tmp in s:
-        cnt += 1
-print(cnt)
+arr_x, arr_y = [], []
+for _ in range(int(input())):
+    x, y = map(int, input().split())
+    arr_x.append(x)
+    arr_y.append(y)
+
+print((max(arr_x) - min(arr_x)) * (max(arr_y) - min(arr_y)))
