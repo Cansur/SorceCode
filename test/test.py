@@ -1,29 +1,22 @@
 import sys
-while True:
-    str = sys.stdin.readline().rstrip()
-    flag = 0
-    stack = []
-    if str == '.':
-        break
-    for i in str:
-        if i == "(" or i == "[": #열린 괄호면 스택에 넣어준다.
-            stack.append(i)
-        elif i == ")": #닫는 소괄호가 등장했을 때
-            if not stack or stack[-1] == "[": #열린 괄호가 없거나 열린 대괄호가 나오면
-                print("no")
-                flag = 1
-                break
+
+N, M, B = map(int, sys.stdin.readline().split())
+ground = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+answer = sys.maxsize
+idx = 0
+
+for target in range(257):
+    max_target, min_target = 0, 0
+
+    for i in range(N):
+        for j in range(M):
+            if ground[i][j] >= target:
+                max_target += ground[i][j] - target
             else:
-                stack.pop()
-        elif i == "]": # 닫는 대괄호가 등장했을 때
-            if not stack or stack[-1] == "(": #열린 괄호가 없거나 열린 소괄호가 나오면
-                print("no")
-                flag = 1
-                break
-            else:
-                stack.pop()
-    if flag == 0:   #앞서 no가 등장하지 않았을 때
-        if not stack :  #스택이 비어있다 = 모든 괄호가 짝을 맞췄다
-            print("yes")
-        else:
-            print("no")
+                min_target += target - ground[i][j]
+
+    if max_target + B >= min_target:
+        if min_target + (max_target * 2) <= answer:
+            answer = min_target + (max_target * 2)
+            idx = target
+print(answer, idx)
