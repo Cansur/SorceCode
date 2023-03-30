@@ -1,18 +1,10 @@
-arr = [[0] * 15 for _ in range(5)]
-for idx in range(5):
-    str = input()
-    for i in range(len(str)):
-        arr[idx][i] = str[i]
-str = ''
-for i in range(15):
-    for j in range(5):
-        if arr[j][i] == 0: continue
-        str += arr[j][i]
-print(str)
-     
-# arr = ['WS']
-
-# try:
-#     print(arr[0][2])
-# except IndexError:
-#     print('')
+N, B = input().split()
+arr = []; sum = 0
+for i in N:
+    arr.append(i)
+for i in range(len(arr)):
+    if(ord(arr[i]) >= 65):
+        sum += (ord(arr[i])-55)*(int(B)**(len(arr)-i-1))
+    else:
+        sum += int(arr[i])*(int(B)**(len(arr)-i-1))
+print(sum)
