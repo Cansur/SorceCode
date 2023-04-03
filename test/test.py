@@ -1,10 +1,12 @@
-N, B = input().split()
-arr = []; sum = 0
-for i in N:
-    arr.append(i)
-for i in range(len(arr)):
-    if(ord(arr[i]) >= 65):
-        sum += (ord(arr[i])-55)*(int(B)**(len(arr)-i-1))
+dic = {}; cnt = 0
+for _ in range(int(input())):
+    str = input()
+    if str == 'ENTER':
+        dic = {}
+        continue
+    if dic.get(str):
+        continue
     else:
-        sum += int(arr[i])*(int(B)**(len(arr)-i-1))
-print(sum)
+        dic[str] = 1
+        cnt += 1
+print(cnt)
