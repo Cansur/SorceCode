@@ -1,18 +1,10 @@
-arr = []
-N = input()
 while 1:
-    if N[0:4] == "XXXX":
-        arr.append("AAAA")
-        N = N[4:]
-    elif N[0:2] == "XX":
-        arr.append("BB")
-        N = N[2:]
-    elif len(N) == 0:
-        print(*arr, sep = "")
+    arr = list(map(int, input().split()))
+    if arr[0] == 0:
         break
-    elif N[0] == ".":
-        arr.append(".")
-        N = N[1:]
-    else:
-        print(-1)
-        break
+    ans = 1
+    for i in range(arr[0]):
+        splitting_factor = arr[2*i + 1]
+        pruned_branches = arr[2*i + 2]
+        ans = ans*splitting_factor - pruned_branches
+    print(ans)
