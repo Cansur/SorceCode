@@ -1,10 +1,22 @@
+cnt = 1
 while 1:
-    arr = list(map(int, input().split()))
-    if arr[0] == 0:
-        break
-    ans = 1
-    for i in range(arr[0]):
-        splitting_factor = arr[2*i + 1]
-        pruned_branches = arr[2*i + 2]
-        ans = ans*splitting_factor - pruned_branches
-    print(ans)
+    N = int(input())
+    if(N == 0): break
+    arr = [];  cntA = 0
+    for _ in range(N):
+        arr.append(list(input().split()))
+    if(cnt > 1): print("")
+    print("Group", cnt)
+    cnt += 1
+    for i in range(N):
+        for j in range(1, len(arr[i])):
+            if "N" in arr[i][j]:
+                cntA += 1
+                name = arr[i][0]
+                number = i - j
+                if(number < 0 ): number += N
+                print(arr[number][0], "was nasty about", arr[i][0])
+    if(cntA == 0): print("Nobody was nasty")
+
+    
+            
